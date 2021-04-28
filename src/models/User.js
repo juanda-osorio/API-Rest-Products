@@ -27,8 +27,8 @@ const userSchema = new Schema({
 
 userSchema.statics.encryptPassword = async(password) => {
     //veces que codifica una contraseña
-    const salt = bcrypt.genSaltSync(10);
-    const hashedPw = bcrypt.hashSync(`${password}`, salt);
+    const salt = await bcrypt.genSaltSync(10);
+    const hashedPw = await bcrypt.hashSync(`${password}`, salt);
     return hashedPw;
 }
 
